@@ -4,7 +4,7 @@ const jsname = 'V2P获取奇瑞CK同步到青龙'
 const $ = new Env(jsname);
 const logDebug = 0; //1为打印所有返回，0为不打印
 
-const notifyFlag = 1; //0为关闭通知，1为打开通知,默认为1
+const notifyFlag = 1; //0为关闭通知，1 为打开通知,默认为1
 let notifyStr = ''
 
 let httpResult //global buffer
