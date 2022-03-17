@@ -45,8 +45,8 @@ async function GetRewrite() {
 
     const req = $request;
     if (req.method != 'OPTIONS') {
-        let qrck = (req.headers['Authorization']||'');
-        if (qrck.indexof('Bearer')>-1) {
+        let qrck = req.headers['Authorization'];
+        if (qrck.indexOf('Bearer')>-1) {
             console.log(`获取到${qrck}`)
         }else{
           return;
