@@ -3,19 +3,14 @@
 const jsname = 'V2P获取奇瑞CK同步到青龙'
 const $ = new Env(jsname);
 const logDebug = 0; //1为打印所有返回，0为不打印
-
 const notifyFlag = 1; //0为关闭通知，1 为打开通知,默认为1
 let notifyStr = ''
-
 let httpResult //global buffer
-
 let qlParam = $.getdata('qlParam')
-
 let qlHost = ''
 let qlSecret = ''
 let qlAuth = ''
 let qlEnv = []
-
 
 !(async () => {
     if (typeof $request !== "undefined") {
@@ -52,7 +47,7 @@ async function GetRewrite() {
         let qrck = (req.headers['Authorization']||'');
         if (qrck.indexof('Bearer')!=-1) {
             console.log(`获取到${qrck}`)
-        }
+        }else{return;}
         await getToken();
 
         if(!qlAuth) return;
