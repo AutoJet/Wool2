@@ -78,6 +78,21 @@ async function GetRewrite() {
     }
 }
 
+async function getToken() {
+    let url = `http://${qlHost}/open/auth/token?${qlSecret}`
+    let body = ``
+    let urlObject = populateUrlObject(url,qlAuth,body)
+    await httpRequest('get',urlObject)
+    let result = httpResult;
+    if(!result) return
+    //console.log(result)
+    if(result.code == 200) {
+        qlAuth = result.data.token
+        console.log(`查询青龙接口成功`)
+    } else {
+        console.log(`查询青龙接口失败: ${result.message}`)
+    }
+}
 
 
 async function addEnv(name,value,remarks) {
@@ -110,6 +125,7 @@ async function searchEnv(keyword='') {
     } else {
         console.log(`获取青龙环境变量失败: ${result.message}`)
     }
+
 }
 
 async function updateEnv(name,value,remarks,_id) {
