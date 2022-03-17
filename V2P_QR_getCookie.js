@@ -43,11 +43,13 @@ function populateParam(param) {
 async function GetRewrite() {
 
     const req = $request;
-    if (req.method != 'OPTIONS' && req.headers) {
+    if (req.method != 'OPTIONS') {
         let qrck = (req.headers['Authorization']||'');
-        if (qrck.indexof('Bearer')!=-1) {
+        if (qrck.indexof('Bearer')>-1) {
             console.log(`获取到${qrck}`)
-        }else{return;}
+        }else{
+          return;
+        }
         await getToken();
 
         if(!qlAuth) return;
@@ -57,7 +59,7 @@ async function GetRewrite() {
 
         let isFound = false
         for(let item of qlEnv) {
-            if(item.name == 'qrck' && item.value.indexOf(qrck) > -1) {
+            if(item.name == 'qrck' && item.value.indexOf('qrck') > -1) {
                 await $.wait(100);
                 await updateEnv('qrck',qrck,`V2P_sync@${(new Date()).getTime()}`,item._id);
                 await $.wait(100);
