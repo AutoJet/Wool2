@@ -12,6 +12,9 @@ let qlSecret = ''
 let qlAuth = ''
 let qlEnv = []
 
+let keyList=[]
+
+
 !(async () => {
     console.log('开始！')
     if (typeof $request !== "undefined") {
