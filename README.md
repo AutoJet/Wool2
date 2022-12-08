@@ -1,5 +1,5 @@
 <div align="center"> 
-  <h1 align="center">自用脚本2</h1>
+  <h2 align="center">自用脚本</h2>
   <img src="https://visitor-badge.glitch.me/badge?page_id=AutoJet/Wool2" alt="">
   <a href="https://github.com/AutoJet/Wool2/stargazers">
      <img src="https://img.shields.io/github/stars/AutoJet/Wool2" alt="stars">
